@@ -4,6 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="ref/style.css" />
+    <script language="javascript" type="text/javascript">
+        function validar(){
+            var nome_cadastro = formCadastro.nome_cad.value;
+            var email_cadastro = formCadastro.email_cad.value;
+            var senha_cadastro = formCadastro.senha_cad.value;
+
+            if(nome_cadastro == ""){
+                alert("Preencha com seu nome!");
+                formCadastro.nome_cad.focus();
+                return false;
+            }
+
+            if(email_cadastro == ""){
+                alert("Preencha com seu email!");
+                formCadastro.email_cad.focus();
+                return false;
+            }
+
+            if(senha_cadastro == ""){
+                alert("Preencha com sua senha!");
+                formCadastro.senha_cad.focus();
+                return false;
+            }
+
+            if(senha_cadastro.length < 6 | senha_cadastro.length > 8){
+                alert("Sua senha deve ter entre 6 e 8 caracteres!");
+                formCadastro.senha_cad.focus();
+                return false;
+            }
+
+            
+            else{
+                alert("Cadastro realizado com sucesso! no email de " + email_cadastro);
+                return true;
+            }
+
+
+        }
+
+        function validarLogin(){
+            var email_login = formLogin.email_login.value;
+            var senha_login = formLogin.senha_login.value;
+
+            if(email_login == ""){
+                alert("Preencha com seu email!");
+                formLogin.email_login.focus();
+                return false;
+            }
+
+            if(senha_login == ""){
+                alert("Preencha com sua senha!");
+                formLogin.senha_login.focus();
+                return false;
+            }
+
+        }
+
+    </script>
 </head>
 <body>
     <div class="container">
@@ -29,7 +87,7 @@
             <label for="manterlogado">Manter-me logado</label>
         </p>
         <p>
-            <input type="submit" value="Logar" />
+            <input type="submit" value="Logar" onclick="return validarLogin()"/>
         </p>
         <p class="link">
             Ainda não tem conta?
@@ -50,7 +108,7 @@
             <input id="senha_cad" name="senha_cad" required="required" type="password" placeholder="ex. 12345"/>
         </p>
         <p>
-            <input type="submit" value="Cadastrar" />
+            <input type="submit" value="Cadastrar" onclick="return validar()"/>
         </p>
         <p class="link">
             Já tem conta?
